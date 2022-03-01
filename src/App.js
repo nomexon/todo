@@ -19,11 +19,16 @@ function App() {
   const limit = useSelector((state) => state.todos.limit);
   const isModalOpen = useSelector((state) => state.todos.isModalOpen);
   const limitMore = useSelector((state) => state.todos.limitMore);
+  const isError = useSelector((state) => state.todos.error);
 
   useEffect(() => {
     dispatch(fetchTodos());
   }, []);
-
+  useEffect(() => {
+    if (isError !== null) {
+      message.error(isError, [1]);
+    }
+  }, [isError]);
   return (
     <div className="App">
       <div className="add__item">
