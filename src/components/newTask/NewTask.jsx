@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Space, Input } from "antd";
-import { fetchAddTodo, setIsModalVisible } from "../../redux/todo/todosSlice";
+import { fetchAddTodo } from "../../redux/todo/todosSlice";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { message } from "antd";
 
 export default function NewTask() {
-  const isError = useSelector((state) => state.todos.error);
-
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (isError !== null) {
-  //     message.error(isError, [1]);
-  //   }
-  // }, [isError]);
 
   function addTodo() {
     if (text > 0) {
