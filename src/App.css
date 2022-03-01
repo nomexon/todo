@@ -14,7 +14,9 @@ ul {
 .add__item {
   margin-bottom: 30px;
 }
-
+.add__item {
+  text-align: center;
+}
 .todo__item {
   display: flex;
 }
