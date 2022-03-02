@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Modal, message } from "antd";
+import { Button, Modal, message, Space } from "antd";
 import {
   fetchTodos,
   fetchMore,
@@ -32,17 +32,18 @@ export default function App() {
         <Menu />
       </div>
 
-      <Todolist />
-
-      <div className="loading">
-        {limitMore < 200 ? (
-          <Button onClick={() => dispatch(fetchMore())} type="primary">
-            Загрузить еще {limit}
-          </Button>
-        ) : (
-          ""
-        )}
-      </div>
+      <Space direction="vertical" size={20}>
+        <Todolist />
+        <div className="loading">
+          {limitMore < 200 ? (
+            <Button onClick={() => dispatch(fetchMore())} type="primary">
+              Загрузить еще {limit}
+            </Button>
+          ) : (
+            ""
+          )}
+        </div>
+      </Space>
       <Modal
         footer={null}
         onCancel={() => {

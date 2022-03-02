@@ -8,7 +8,7 @@ export default function NewTask() {
   const dispatch = useDispatch();
 
   function addTodo() {
-    if (text > 0) {
+    if (text.length > 0) {
       dispatch(fetchAddTodo(text));
       setText("");
     }
